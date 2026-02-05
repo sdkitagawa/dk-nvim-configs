@@ -1,5 +1,5 @@
 -- ~/.config/nvim/after/plugin/config_cd.lua
-local config_dir = vim.fn.expand("C:/Users/Douglas Kitagawa/AppData/Local/nvim")
+local config_dir = vim.fn.expand("C:/Users/Douglas Kitagawa/AppData/Local/nvim-lazyvim")
 
 local function cd_to_config()
   if vim.fn.isdirectory(config_dir) == 1 then
@@ -17,4 +17,4 @@ vim.api.nvim_create_user_command("Config", function()
 end, { nargs = 0 })
 
 -- Optional mapping: <leader>cd to jump to config dir (change leader if needed)
-vim.keymap.set("n", "<leader>cd", cd_to_config, { desc = "cd to C:/Users/Douglas Kitagawa/AppData/Local/nvim" })
+vim.keymap.set("n", "<leader>cd", cd_to_config, { desc = "cd to C:/Users/Douglas Kitagawa/AppData/Local/nvim-lazyvim" })
