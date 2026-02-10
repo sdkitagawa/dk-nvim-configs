@@ -1,6 +1,32 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls" }
+local servers = {
+    "html",
+    "cssls",
+    "clangd",
+    "arduino-language-server",
+    "cmake-language-server",
+    "cobol-language-support",
+    "copilot-language-server",
+    "css-lsp",
+    "css-variables-language-server",
+    "cssmodules-language-server",
+    "django-template-lsp",
+    "docker-compose-language-service",
+    "docker-language-server",
+    "dockerfile-language-server",
+    "html-lsp",
+    "json-lsp",
+    "kotlin-language-server",
+    "laravel-ls",
+    "lua-language-server",
+    "postgres-language-server",
+    "python-lsp-server",
+    "stylelint-lsp",
+    "stylua",
+    "terraform-ls",
+    "typescript-language-server",
+    "vim-language-server",
+    "yaml-language-server"
+    }
 vim.lsp.enable(servers)
-
--- read :h vim.lsp.config for changing options of lsp servers 
