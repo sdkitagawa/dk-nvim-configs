@@ -47,18 +47,18 @@ return {
         require("persistence").load()
       end
 
-    -- stylua: ignore start
+    -- Stylua: ignore start
     local function restore_session() require("persistence").load() end
     local function restore_last_session() require("persistence").load({ last = true }) end
     local function quit() vim.api.nvim_input("<cmd>qa<cr>") end
-      -- stylua: ignore end
+    -- Stylua: ignore end
 
       return {
         logo = header,
         theme = "doom",
         hide = {
-          -- this is taken care of by lualine
-          -- enabling this messes up the actual laststatus setting after loading a file
+          -- This is taken care of by lualine
+          -- Enabling this messes up the actual laststatus setting after loading a file
           statusline = false,
         },
         config = {
@@ -86,11 +86,11 @@ return {
       }
     end,
     config = function(_, opts)
-      local win_height = vim.api.nvim_win_get_height(0) + 2 -- plus 2 for status bar
-      local _, logo_count = string.gsub(opts.logo, "\n", "") -- count newlines in logo
-      local logo_height = logo_count + 2 -- logo size + newlines
-      local actions_height = #opts.config.center * 2 - 1 -- minus 1 for last item
-      local total_height = logo_height + actions_height + 2 -- plus for 2 for footer
+      local win_height = vim.api.nvim_win_get_height(0) + 2 -- Plus 2 for status bar
+      local _, logo_count = string.gsub(opts.logo, "\n", "") -- Count newlines in logo
+      local logo_height = logo_count + 2 -- Logo size + Newlines
+      local actions_height = #opts.config.center * 2 - 1 -- Minus 1 for last item
+      local total_height = logo_height + actions_height + 2 -- Plus for 2 for footer
       local margin = math.floor((win_height - total_height) / 2)
       local logo = string.rep("\n", margin) .. opts.logo .. "\n"
       opts.config.header = vim.split(logo, "\n")
@@ -100,7 +100,7 @@ return {
         button.key_format = "%s"
       end
 
-      -- open dashboard after closing lazy
+      -- Open dashboard after closing lazy
       if vim.o.filetype == "lazy" then
         vim.api.nvim_create_autocmd("WinClosed", {
           pattern = tostring(vim.api.nvim_get_current_win()),
