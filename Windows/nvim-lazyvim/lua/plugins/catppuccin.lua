@@ -1,4 +1,3 @@
--- nvim/lua/plugins/catppuccin.lua
 return {
   {
     "catppuccin/nvim",
@@ -6,11 +5,11 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- ensure true color
+      -- Ensure true color
       vim.opt.termguicolors = true
-      -- catppuccin setup
+      -- Catppuccin setup
       require("catppuccin").setup({
-        flavour = "mocha", -- change to latte/frappe/macchiato if you prefer
+        flavour = "mocha", -- Change to latte/frappe/macchiato if you prefer
         transparent_background = true,
         term_colors = true,
         integrations = {
@@ -19,7 +18,7 @@ return {
           treesitter = true,
         },
       })
-      -- apply colorscheme
+      -- Apply colorscheme
       vim.cmd("colorscheme catppuccin")
     end,
   },
