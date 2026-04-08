@@ -1,4 +1,5 @@
 -- ~/.config/nvim/ftplugin/yaml.lua
+-- C:/Users/user_name/AppData/Local/nvim/ftplugin/yaml.lua
 -- YAML commonly uses 2, but using 4 per your baseline preference
 vim.bo.expandtab = true
 vim.bo.shiftwidth = 4
