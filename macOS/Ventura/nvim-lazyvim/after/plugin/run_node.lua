@@ -1,10 +1,11 @@
 -- ~/.config/nvim/after/plugin/run_node.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_node.lua
 -- Run the current buffer with node. Creates :RunNode and <leader>rn.
 local function run_node_in_terminal(cmd)
-  -- prefer toggleterm if available
+  -- Prefer toggleterm if available
   local ok, toggleterm = pcall(require, "toggleterm.terminal")
   if ok and toggleterm and toggleterm.Terminal then
-    -- use a floating terminal if toggleterm is installed
+    -- Use a floating terminal if toggleterm is installed
     local Terminal = toggleterm.Terminal
     local t = Terminal:new({
       cmd = cmd,
@@ -16,7 +17,7 @@ local function run_node_in_terminal(cmd)
     return
   end
 
-  -- fallback: open a horizontal split terminal
+  -- Fallback: open a horizontal split terminal
   vim.cmd("belowright split")
   vim.cmd("resize 12")
   local term_buf = vim.api.nvim_create_buf(false, true)
@@ -34,12 +35,12 @@ local function run_current_file()
     return
   end
 
-  -- save buffer if modified
+  -- Save buffer if modified
   if vim.bo.modified then
     vim.cmd("write")
   end
 
-  -- escape path for shell
+  -- Escape path for shell
   local escaped = vim.fn.shellescape(fname)
   local cmd = "node " .. escaped
 
