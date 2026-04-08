@@ -1,4 +1,5 @@
 -- ~/.config/nvim/after/plugin/run_lua.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_lua.lua
 -- Run current buffer with Lua. Creates :RunLua and <leader>rl.
 
 local function find_lua_interpreter()
