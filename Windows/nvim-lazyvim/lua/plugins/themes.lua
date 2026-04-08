@@ -1,3 +1,6 @@
+-- ~/.config/nvim/lua/plugins/themes.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/themes.lua
+-- Themes Setup
 return {
 	-- Tokyo Night Moon - Main theme
 	{
