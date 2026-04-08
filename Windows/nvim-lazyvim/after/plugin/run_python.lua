@@ -1,4 +1,5 @@
 -- ~/.config/nvim/after/plugin/run_python.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_python.lua
 -- Run current buffer with Python. Creates :RunPython and <leader>rp.
 
 local function find_local_python()
