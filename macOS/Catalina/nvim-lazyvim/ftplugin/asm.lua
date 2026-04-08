@@ -1,4 +1,5 @@
 -- ~/.config/nvim/ftplugin/asm.lua
+-- C:/Users/user_name/AppData/Local/nvim/ftplugin/asm.lua
 -- Use real tabs for assembly (common requirement)
 vim.bo.expandtab = false
 vim.bo.shiftwidth = 4
