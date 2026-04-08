@@ -1,3 +1,6 @@
+-- ~/.config/nvim/lua/plugins/flash.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/flash.lua
+-- Flash Setup
 local M = {
         "folke/flash.nvim",
         event = "VeryLazy",
