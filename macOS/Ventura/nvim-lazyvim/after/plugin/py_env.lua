@@ -1,5 +1,10 @@
 -- ~/.config/nvim/after/plugin/py_env.lua
-local workspace_dir = vim.fn.expand("/Users/dkitagawa/Documents/DK's Coding Workspace/python")
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/py_env.lua
+
+local env_path = vim.fn.stdpath("config") .. "/.env"
+local env = require("env").load_env(env_path)
+
+local workspace_dir = env.PYTHON_MACOS_WORKSPACE or vim.fn.expand("D:/Disk Utilities/Programs/Development/DK's Coding Workspace/python")
 
 local function cd_to_workspace()
   if vim.fn.isdirectory(workspace_dir) == 1 then
@@ -17,9 +22,4 @@ vim.api.nvim_create_user_command("PyEnv", function()
 end, { nargs = 0 })
 
 -- Optional mapping: <leader>dw to jump to workspace dir (change leader if needed)
-vim.keymap.set(
-  "n",
-  "<leader>dw",
-  cd_to_workspace,
-  { desc = "cd to /Users/dkitagawa/Documents/DK's Coding Workspace/python" }
-)
+vim.keymap.set("n", "<leader>dw", cd_to_workspace, { desc = "cd to Python workspace" })
