@@ -1,3 +1,6 @@
+-- ~/.config/nvim/lua/plugins/dashboard.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/dashboard.lua
+-- Dashboard Setup
 local header
 header = [[
 ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
