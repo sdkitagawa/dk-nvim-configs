@@ -1,4 +1,5 @@
 -- ~/.config/nvim/after/plugin/run_lua.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_lua.lua
 -- Run current buffer with Lua. Creates :RunLua and <leader>rl.
 
 local function find_lua_interpreter()
@@ -25,7 +26,7 @@ local function run_in_terminal(cmd)
     return
   end
 
-  -- fallback: horizontal split terminal
+  -- Fallback: horizontal split terminal
   vim.cmd("belowright split")
   vim.cmd("resize 12")
   local term_buf = vim.api.nvim_create_buf(false, true)
@@ -41,14 +42,14 @@ local function run_current_lua()
     return
   end
 
-  -- ensure filetype is lua or extension is lua
+  -- Ensure filetype is lua or extension is lua
   local ft = vim.bo.filetype
   local ext = vim.fn.expand("%:e")
   if ft ~= "lua" and ext ~= "lua" then
     vim.notify("Current buffer is not detected as Lua", vim.log.levels.WARN)
   end
 
-  -- save buffer if modified
+  -- Save buffer if modified
   if vim.bo.modified then
     vim.cmd("write")
   end
