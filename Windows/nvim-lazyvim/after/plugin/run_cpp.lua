@@ -1,4 +1,5 @@
 -- ~/.config/nvim/after/plugin/run_cpp.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_cpp.lua
 -- Compile and run current C++ file. Creates :RunCPP and <leader>rc.
 
 local function find_compiler()
