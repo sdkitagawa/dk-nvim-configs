@@ -1,9 +1,13 @@
 -- ~/.config/nvim/after/plugin/ts_env.lua
-local workspace_dir = vim.fn.expand("D:/Disk Utilities/Programs/Development/DK's Coding Workspace/typescript")
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/ts_env.lua
+
+local env_path = vim.fn.stdpath("config") .. "/.env"
+local env = require("env").load_env(env_path)
+
+local workspace_dir = env.TS_WINDOWS_WORKSPACE or vim.fn.expand(".")
 
 local function cd_to_workspace()
   if vim.fn.isdirectory(workspace_dir) == 1 then
-    -- Set global working directory without opening any buffer
     vim.api.nvim_set_current_dir(workspace_dir)
     vim.notify("cwd set to: " .. workspace_dir, vim.log.levels.INFO)
   else
@@ -11,10 +15,5 @@ local function cd_to_workspace()
   end
 end
 
--- Create a simple user command: :TsEnv
-vim.api.nvim_create_user_command("TsEnv", function()
-  cd_to_workspace()
-end, { nargs = 0 })
-
--- Optional mapping: <leader>dw to jump to workspace dir (change leader if needed)
-vim.keymap.set("n", "<leader>dw", cd_to_workspace, { desc = "cd to D:/Disk Utilities/Programs/Development/DK's Coding Workspace/typescript" })
+vim.api.nvim_create_user_command("TsEnv", cd_to_workspace, {})
+vim.keymap.set("n", "<leader>dw", cd_to_workspace, { desc = "Change directory to TypeScript workspace" })
