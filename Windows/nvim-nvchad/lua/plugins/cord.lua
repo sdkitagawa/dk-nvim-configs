@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/plugins/cord.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/cord.lua
 -- Cord Setup
 return { {
     "vyfor/cord.nvim",
