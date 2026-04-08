@@ -1,4 +1,5 @@
 -- ~/.config/nvim/ftplugin/cs.lua
+-- C:/Users/user_name/AppData/Local/nvim/ftplugin/cs.lua
 vim.bo.expandtab = true
 vim.bo.shiftwidth = 4
 vim.bo.tabstop = 4
