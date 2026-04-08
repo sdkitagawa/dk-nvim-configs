@@ -1,4 +1,5 @@
 -- ~/.config/nvim/ftplugin/rust.lua
+-- C:/Users/user_name/AppData/Local/nvim/ftplugin/rust.lua
 -- rustfmt is authoritative; this keeps editor consistent with 4 spaces
 vim.bo.expandtab = true
 vim.bo.shiftwidth = 4
