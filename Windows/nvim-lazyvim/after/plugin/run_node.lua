@@ -1,4 +1,5 @@
 -- ~/.config/nvim/after/plugin/run_node.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_node.lua
 -- Run the current buffer with node. Creates :RunNode and <leader>rn.
 local function run_node_in_terminal(cmd)
   -- Prefer toggleterm if available
