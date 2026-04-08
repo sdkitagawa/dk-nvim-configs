@@ -1,8 +1,9 @@
 -- ~/.config/nvim/after/plugin/run_python.lua
+-- C:/Users/user_name/AppData/Local/nvim/after/plugin/run_python.lua
 -- Run current buffer with Python. Creates :RunPython and <leader>rp.
 
 local function find_local_python()
-  -- procura por .venv/bin/python ou venv/bin/python no cwd ou em ancestrais
+  -- Search for .venv/bin/python or venv/bin/python in cwd or ancestors
   local cwd = vim.fn.getcwd()
   local candidates = {
     cwd .. "/.venv/bin/python",
@@ -11,7 +12,7 @@ local function find_local_python()
     cwd .. "/venv/Scripts/python.exe",
   }
 
-  -- também verifica em diretório do arquivo atual
+  -- It also checks the current file directory.
   local filedir = vim.fn.expand("%:p:h")
   if filedir ~= "" and filedir ~= cwd then
     table.insert(candidates, 1, filedir .. "/.venv/bin/python")
@@ -24,7 +25,7 @@ local function find_local_python()
     end
   end
 
-  -- fallback para python do PATH (prefere python3 se disponível)
+  -- Fallback to PATH Python (prefer Python 3 if available)
   if vim.fn.executable("python3") == 1 then
     return "python3"
   end
@@ -35,7 +36,7 @@ local function find_local_python()
 end
 
 local function run_in_terminal(cmd)
-  -- tenta usar toggleterm se disponível
+  -- Try using toggleterm if available
   local ok, toggleterm = pcall(require, "toggleterm.terminal")
   if ok and toggleterm and toggleterm.Terminal then
     local Terminal = toggleterm.Terminal
@@ -49,7 +50,7 @@ local function run_in_terminal(cmd)
     return
   end
 
-  -- fallback: split horizontal terminal
+  -- Fallback: Split horizontal terminal
   vim.cmd("belowright split")
   vim.cmd("resize 12")
   local term_buf = vim.api.nvim_create_buf(false, true)
@@ -65,12 +66,12 @@ local function run_current_python()
     return
   end
 
-  -- salva buffer se modificado
+  -- Saves buffer if modified 
   if vim.bo.modified then
     vim.cmd("write")
   end
 
-  -- detecta python local ou global
+  -- Detects local or global Python
   local python = find_local_python()
   if not python then
     vim.notify("Python não encontrado no PATH e nenhum .venv/venv detectado", vim.log.levels.ERROR)
@@ -78,13 +79,13 @@ local function run_current_python()
   end
 
   local escaped = vim.fn.shellescape(fname)
-  -- -u para saída não bufferizada, útil para ver prints em tempo real
+  -- -u for unbuffered output, useful for viewing prints in real time
   local cmd = python .. " -u " .. escaped
 
   run_in_terminal(cmd)
 end
 
--- Comando e mapeamento
+-- Command and mapping
 vim.api.nvim_create_user_command("RunPython", function()
   run_current_python()
 end, { desc = "Run current file with Python" })
