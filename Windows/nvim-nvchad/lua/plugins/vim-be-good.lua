@@ -1,3 +1,6 @@
+-- ~/.config/nvim/lua/plugins/vim-be-good.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/vim-be-good.lua
+-- VimBeGood
 return {
     "ThePrimeagen/vim-be-good",
     cmd = "VimBeGood",
