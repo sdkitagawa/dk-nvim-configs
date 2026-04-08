@@ -1,3 +1,6 @@
+-- ~/.config/nvim/lua/plugins/scroll_eof.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/scroll_eof.lua
+-- Scroll EOF Setup
 return {
     "Aasim-A/scrollEOF.nvim",
     event = { "CursorMoved", "WinScrolled" },
