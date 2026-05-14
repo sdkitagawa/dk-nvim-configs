@@ -1,7 +1,7 @@
--- ~/.config/nvim/lua/plugins/stay-centered
--- C:/Users/user_name/AppData/Local/nvim/lua/plugins/stay-centered.lua
--- Rust Compiler Location on Windows
-local env = require("env").load_env("C:/Users/Douglas Kitagawa/AppData/Local/nvim/.env")
+-- ~/.config/nvim/lua/plugins/rust.lua
+-- C:/Users/user_name/AppData/Local/nvim/lua/plugins/rust.lua
+-- Rust Compiler Location on macOS
+local env = require("env").load_env("/Users/dkitagawa/.config/nvim/.env")
 
 return {
     {
@@ -13,7 +13,7 @@ return {
                         ["rust-analyzer"] = {
                             cargo = {
                                 extraEnv = {
-                                    RUSTC = env.RUST_COMPILER_WINDOWS,
+                                    RUSTC = env.RUST_COMPILER_MACOS,
                                 },
                             },
                         },
