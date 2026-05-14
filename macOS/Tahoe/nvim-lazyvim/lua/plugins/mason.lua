@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/plugins/mason.lua
 -- C:/Users/user_name/AppData/Local/nvim/lua/plugins/mason.lua
 -- Mason LSPs, Formatters, Linters and DAPs
+
 return {
   {
     "mason-org/mason.nvim",
